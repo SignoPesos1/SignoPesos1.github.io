@@ -37,6 +37,24 @@ angular.module('server.utils', [])
         });
     }
 
+    function delRegistros(){
+        return $http({
+            url: fullServerAddress+'getRegistros',
+            method: 'POST',
+            withCredentials: false,
+            crossDomain: true
+        });
+    }
+
+    function getPortfolios(){
+        return $http({
+            url: fullServerAddress+'getPortfolios',
+            method: 'GET',
+            withCredentials: false,
+            crossDomain: true
+        });
+    }
+
     return {
         serverAddress: serverAddress,
         serverPort: serverPort,
@@ -44,7 +62,9 @@ angular.module('server.utils', [])
         sendPersonalInfo: function(infoJson){
             return sendMessage(infoJson, 'POST');
         },
-        getPortfolios: getPortfolios
+        delRegistros: delRegistros,
+        getPortfolios: getPortfolios,
+        serverAddress: fullServerAddress
     }
 }])
 .factory('user_data', [function(){

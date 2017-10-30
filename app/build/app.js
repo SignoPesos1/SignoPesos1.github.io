@@ -19,5 +19,9 @@ angular.module('formApp', [
         templateUrl: 'templates/results.html',
         controller: 'results',
         controllerAs: 'ctrl'
+    }).when('/admin', {
+        templateUrl: 'templates/admin.html',
+        controller: 'fields',
+        controllerAs: 'ctrl'
     }).otherwise({redirectTo: '/form'});
 }]);
